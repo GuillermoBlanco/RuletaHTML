@@ -1,14 +1,120 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html>
 <html>
     <head>
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script type="text/javascript" src="script.js"></script>
     </head>
     <body>
-        <div>TODO write content</div>
+        <div id="ruleta" onclick="calcula()"><img src="./img/ruleta.png"/></div>
+        <div id="panel">
+            <table cellspacing="2">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <td class="marcador" colspan="3" onclick="guardaApuesta(0);">0</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="marcador" rowspan="2" onclick="guardaApuesta('1-18');">1-18</td>
+                        <td class="marcador" rowspan="4" onclick="guardaApuesta('Docena1');">1ªDocena</td>
+                        <td class="rojo" onclick="guardaApuesta(1);">1</td>
+                        <td class="negro" onclick="guardaApuesta(2);">2</td>
+                        <td class="rojo" onclick="guardaApuesta(3);">3</td>
+                    </tr>
+                    <tr>
+                        <!--<td></td>-->
+                        <!--<td></td>-->
+                        <td class="negro" onclick="guardaApuesta(4);">4</td>
+                        <td class="rojo" onclick="guardaApuesta(5);">5</td>
+                        <td class="negro" onclick="guardaApuesta(6);">6</td>
+                    </tr>
+                    <tr>
+                        <td class="marcador" rowspan="2" onclick="guardaApuesta('PAR');">PAR</td>
+                        <!--<td></td>-->
+                        <td class="rojo" onclick="guardaApuesta(7);">7</td>
+                        <td class="negro" onclick="guardaApuesta(8);">8</td>
+                        <td class="rojo" onclick="guardaApuesta(9);">9</td>
+                    </tr>
+                    <tr>
+                        <!--<td></td>-->
+                        <!--<td></td>-->
+                        <td class="negro" onclick="guardaApuesta(10);">10</td>
+                        <td class="negro" onclick="guardaApuesta(11);">11</td>
+                        <td class="rojo" onclick="guardaApuesta(12);">12</td>
+                    </tr>
+                    <tr>
+                        <td class="marcador" rowspan="2" onclick="guardaApuesta('ROJO');">ROJO</td>
+                        <td class="marcador" rowspan="4" onclick="guardaApuesta('Docena2');">2daDocena</td>
+                        <td class="negro" onclick="guardaApuesta(13);">13</td>
+                        <td class="rojo" onclick="guardaApuesta(14);">14</td>
+                        <td class="negro" onclick="guardaApuesta(15);">15</td>
+                    </tr>
+                    <tr>
+                        <!--<td></td>-->
+                        <!--<td></td>-->
+                        <td class="rojo" onclick="guardaApuesta(16);">16</td>
+                        <td class="negro" onclick="guardaApuesta(17);">17</td>
+                        <td class="rojo" onclick="guardaApuesta(18);">18</td>
+                    </tr>
+                    <tr>
+                        <td class="marcador" rowspan="2" onclick="guardaApuesta('NEGRO');">Negro</td>
+                        <!--<td></td>-->
+                        <td class="rojo" onclick="guardaApuesta(19);">19</td>
+                        <td class="negro" onclick="guardaApuesta(20);">20</td>
+                        <td class="rojo" onclick="guardaApuesta(21);">21</td>
+                    </tr>
+                    <tr>
+                        <!--<td></td>-->
+                        <!--<td></td>-->
+                        <td class="rojo" onclick="guardaApuesta(22);">22</td>
+                        <td class="negro" onclick="guardaApuesta(23);">23</td>
+                        <td class="negro" onclick="guardaApuesta(24);">24</td>
+                    </tr>
+                    <tr>
+                        <td class="marcador" rowspan="2" onclick="guardaApuesta('IMPAR');">IMPAR</td>
+                        <td class="marcador" rowspan="4" onclick="guardaApuesta('Docena3');">3ra Docena</td>
+                        <td class="rojo" onclick="guardaApuesta(25);">25</td>
+                        <td class="negro" onclick="guardaApuesta(26);">26</td>
+                        <td class="rojo" onclick="guardaApuesta(27);">27</td>
+                    </tr>
+                    <tr>
+                        <!--<td></td>-->
+                        <!--<td></td>-->
+                        <td class="negro" onclick="guardaApuesta(28);">28</td>
+                        <td class="negro" onclick="guardaApuesta(29);">29</td>
+                        <td class="rojo" onclick="guardaApuesta(30);">30</td>
+                    </tr>
+                    <tr>
+                        <td class="marcador" rowspan="2" onclick="guardaApuesta('19-36');">19-36</td>
+                        <!--<td></td>-->
+                        <td class="negro" onclick="guardaApuesta(31);">31</td>
+                        <td class="rojo" onclick="guardaApuesta(32);">32</td>
+                        <td class="negro" onclick="guardaApuesta(33);">33</td>
+                    </tr>
+                    <tr>
+                        <!--<td></td>-->
+                        <!--<td></td>-->
+                        <td class="rojo" onclick="guardaApuesta(34);">34</td>
+                        <td class="negro" onclick="guardaApuesta(35);">35</td>
+                        <td class="rojo" onclick="guardaApuesta(36);">36</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <td class="marcador" onclick="guardaApuesta('Columna1');">1ra Columna</td>
+                        <td class="marcador" onclick="guardaApuesta('Columna2');">2da Columna</td>
+                        <td class="marcador" onclick="guardaApuesta('Columna3');">3ra Columna</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            
+        </div>
     </body>
 </html>
