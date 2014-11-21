@@ -3,19 +3,34 @@
  * and open the template in the editor.
  */
 
+var cash = prompt("Cuanto dinero llevas?");
+
 var apuestas=new Array();
 var rojos=[1,3,5,7,9,12,14,16,18,19,21,22,25,27,30,32,34,36];
 var negros=[2,4,6,8,10,11,13,15,17,20,23,24,26,28,29,31,33,35];
+var columna1=[1,4,7,10,13,16,19,22,25,28,31,34];
+var columna2=[2,5,8,11,14,17,20,23,26,29,32,35];
+var columna3=[3,6,9,12,15,18,21,24,27,30,33,36];
 
 function guardaApuesta(apuesta){
-   var dinero=prompt("Cuanto apuestas a "+apuesta+"?");
-   apuestas.push(new Array(apuesta,dinero));
+    var actual=0;
+    var mensaje;
+    if(apuestas!=undefined && apuestas.length!=0){
+        apuestas.forEach(function(value){
+            if (value[0]==apuesta) {actual+=parseInt(value[1]);}
+        });
+    }
+   (actual==0)? mensaje="Tienes "+cash+" euros\n"+"Cuanto apuestas a "+apuesta+"?" : 
+                mensaje = "Tienes "+cash+"euros \nLlevas "+actual+" euros apostado a "+apuesta+"\nCuanto incrementas la apuesta ?";
+   var dinero=prompt(mensaje);
+   if (dinero!="") {apuestas.push(new Array(apuesta,dinero));
+   cash-=parseInt(dinero);}
 }
 
 function calcula(){
     var rnd = Math.floor(Math.random() * 37);
 //    alert("Random "+rnd+" \nApuestas "+apuestas);
-    if(apuestas!=undefined){
+    if(apuestas!=undefined && apuestas.length!=0){
         var resultado=0;
         apuestas.forEach(function(value){
 //            alert("Value "+value[0].length);
@@ -48,17 +63,23 @@ function calcula(){
                     else resultado+=value[1]/2;
                     break;
                 case value[0]=="Docena1":
-                    if (rnd>0 && rnd<=12) resultado+=value[1]*2;
+                    if (columna1.indexOf(rnd)!=-1) resultado+=value[1]*2;
                     break;
                 case value[0]=="Docena2":
-                    if (rnd>=13 && rnd<=24) resultado+=value[1]*2;
+                    if (columna2.indexOf(rnd)!=-1) resultado+=value[1]*2;
                     break;
                 case value[0]=="Docena3":
-                    if (rnd>=25 && rnd<=36) resultado+=value[1]*2;
+                    if (columna3.indexOf(rnd)!=-1) resultado+=value[1]*2;
                     break;
                 
                 
             }
         });
+        alert("Has obtenido: "+resultado+"\nSumado a tu dinero tienes: "+(cash+resultado)+" euros\nVuelve a jugar");
+        apuestas=new Array();
+        location.reload();
+    }else{
+        alert("No hay apuestas");
     }
+
 }
